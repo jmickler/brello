@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class LanesController extends Controller
+class TagsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class LanesController extends Controller
      */
     public function index()
     {
-        return \App\Lane::all();
+        return \App\Tag::all();
     }
 
     /**
@@ -33,11 +33,12 @@ class LanesController extends Controller
      */
     public function store(Request $request)
     {
-        $lane = new \App\Lane; 
-        $lane->name = $request->name;
-        $lane->save();
-        return $lane;
-
+        $tag = new \App\Tag;
+        $tag->name = $request->name;
+        $tag->color = $request->color;
+        $tag->save();
+        
+        return $tag;
     }
 
     /**
@@ -48,7 +49,7 @@ class LanesController extends Controller
      */
     public function show($id)
     {
-        return \App\Lane::find($id);
+        return \App\Tag::find($id);
     }
 
     /**
@@ -58,6 +59,7 @@ class LanesController extends Controller
      * @return \Illuminate\Http\Response
      */
     
+    }
 
     /**
      * Update the specified resource in storage.
@@ -68,11 +70,12 @@ class LanesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $lane = \App\Lane::find($id);
-        $lane->name = $request->name;
-        $lane->save();
-
-        return $lane;
+        $tag = \App\Tag::find($id);
+        $tag->name = $request->name;
+        $tag->color = $request->color;
+        $tag->save();
+        
+        return $tag;
     }
 
     /**
@@ -83,9 +86,10 @@ class LanesController extends Controller
      */
     public function destroy($id)
     {
-         $lane = \App\Lane::find($id);
-        $lane->delete();
+        $tag = \App\Tag::find($id);
+        $tag->delete();
 
-        return $lane;
+        return $tag;
+
     }
 }
