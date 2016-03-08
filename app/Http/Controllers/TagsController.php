@@ -37,7 +37,7 @@ class TagsController extends Controller
         $tag->name = $request->name;
         $tag->color = $request->color;
         $tag->save();
-        
+
         return $tag;
     }
 
@@ -59,7 +59,7 @@ class TagsController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    }
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -71,11 +71,11 @@ class TagsController extends Controller
     public function update(Request $request, $id)
     {
         $tag = \App\Tag::find($id);
-        $tag->name = $request->name;
-        $tag->color = $request->color;
-        $tag->save();
-        
-        return $tag;
+        $tag->name = $request->name;
+        $tag->color = $request->color;
+        $tag->save();
+
+        return $tag;
     }
 
     /**
@@ -87,9 +87,8 @@ class TagsController extends Controller
     public function destroy($id)
     {
         $tag = \App\Tag::find($id);
-        $tag->delete();
+        $tag->delete();
 
-        return $tag;
-
+        return $tag;
     }
 }

@@ -37,6 +37,7 @@ class TasksController extends Controller
         $task->lane_id = $request->lane_id;
         $task->title = $request->title;
         $task->save();
+
         return $task;
     }
 
@@ -69,11 +70,11 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
         $task = \App\Task::find($id);
-        $task->lane_id = $request->lane_id;
-        $task->title = $request->title;
-        $task->save();
+        $task->lane_id = $request->lane_id;
+        $task->title = $request->title;
+        $task->save();
 
-        return $task;
+        return $task;
     }
 
     /**
@@ -84,9 +85,9 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-       $task = \App\Task::find($id);
-       $task->delete();
+        $task = \App\Task::find($id);
+        $task->delete();
 
-       return $task;
+        return $task;
     }
 }
